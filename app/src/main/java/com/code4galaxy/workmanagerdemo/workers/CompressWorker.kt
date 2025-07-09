@@ -15,7 +15,7 @@ class CompressWorker(appContext: Context, workerParams: WorkerParameters) :
         delay(1000)
 
         // compress path
-        val compressedPath = path.replace(".jpg", "_compressed.jpg")
+        val compressedPath = path?.replace(".jpg", "_compressed.jpg")
         Log.i("CompressWorker", "compressedPath: $compressedPath")
         return Result.success(workDataOf("compressedPath" to compressedPath))
     }

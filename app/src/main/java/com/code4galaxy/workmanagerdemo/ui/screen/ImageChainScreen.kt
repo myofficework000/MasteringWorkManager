@@ -12,10 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavHostController
 import com.code4galaxy.workmanagerdemo.viewmodel.ChainDemoViewModel
 
 @Composable
-fun ImageChainScreen(modifier: Modifier = Modifier) {
+fun ImageChainScreen(modifier: Modifier = Modifier,navController:NavHostController) {
     val viewModel: ChainDemoViewModel = hiltViewModel()
     val state = viewModel.chainState.collectAsStateWithLifecycle().value
 
