@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import com.code4galaxy.workmanagerdemo.ui.screen.ImageChainScreen
 import com.code4galaxy.workmanagerdemo.ui.screen.RetryUploadScreen
 import com.code4galaxy.workmanagerdemo.ui.theme.WorkmanagerDemoTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +22,8 @@ class MainActivity : ComponentActivity() {
             WorkmanagerDemoTheme {
                 Scaffold(modifier = Modifier.Companion.fillMaxSize()) { innerPadding ->
                     // QuoteScreen(modifier = Modifier.Companion.padding(innerPadding))
-                    RetryUploadScreen(modifier = Modifier.Companion.padding(innerPadding))
+                    //RetryUploadScreen(modifier = Modifier.Companion.padding(innerPadding))
+                    ImageChainScreen(modifier = Modifier.Companion.padding(innerPadding))
                 }
             }
         }

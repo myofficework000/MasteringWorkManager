@@ -27,7 +27,7 @@ class RetryWorkerViewModel @Inject constructor(private val app: Application) :
         val input = workDataOf("image_uri" to "/fake_path/image.jpg")
 
         val request = OneTimeWorkRequestBuilder<RetryUploadWorker>()
-            .setInputData(input)
+            .setInputData(workDataOf("filepath" to input))
             .setBackoffCriteria(
                 backoffPolicy = BackoffPolicy.EXPONENTIAL,
                 duration = java.time.Duration.ofSeconds(10)

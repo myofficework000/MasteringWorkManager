@@ -11,6 +11,9 @@ class RetryUploadWorker(appContext: Context, workerParams: WorkerParameters) :
     CoroutineWorker(appContext, workerParams) {
 
     override suspend fun doWork(): Result {
+        val filepath = inputData.getString("filepath")
+        Log.i("RetryUploadWorker", "filepath: $filepath")
+
         // Do the work like long running operations
         val attempt = runAttemptCount
         Log.i("RetryUploadWorker", "Attempt: $attempt")
