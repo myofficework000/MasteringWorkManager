@@ -29,8 +29,12 @@ fun RetryUploadScreen(modifier: Modifier = Modifier,navController: NavHostContro
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Button(onClick = { retryWorkerViewModel.startRetryingUpload() }) {
+        Button(onClick = { retryWorkerViewModel.startRetryingUpload()
+
+            navController.navigate("ImageChainScreen")
+        }) {
             Text("Start Upload")
+
         }
     }
 }
