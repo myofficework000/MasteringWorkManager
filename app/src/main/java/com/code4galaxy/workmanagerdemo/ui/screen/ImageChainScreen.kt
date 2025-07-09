@@ -29,6 +29,7 @@ fun ImageChainScreen(modifier: Modifier = Modifier,navController:NavHostControll
 
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = { viewModel.startImageProcessing()
+
             navController.navigate("RetryUploadScreen")
         }) {
             Text("Start Image Processing")
