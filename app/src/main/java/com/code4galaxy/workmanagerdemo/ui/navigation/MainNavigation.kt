@@ -14,12 +14,13 @@ fun MainNavigation(modifier: Modifier = Modifier,navController:NavHostController
 
     NavHost(
         navController,
-        startDestination = "RetryUploadScreen"
+        startDestination = "ImageChainScreen"
 
     ) {
 
+
         composable("RetryUploadScreen"){
-            println("ishk")
+
             RetryUploadScreen(navController = navController)
         }
         composable("ImageChainScreen"){
