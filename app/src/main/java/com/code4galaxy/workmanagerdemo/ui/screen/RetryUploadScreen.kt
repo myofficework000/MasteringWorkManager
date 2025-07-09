@@ -12,10 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavHostController
 import com.code4galaxy.workmanagerdemo.viewmodel.RetryWorkerViewModel
 
 @Composable
-fun RetryUploadScreen(modifier: Modifier = Modifier) {
+fun RetryUploadScreen(modifier: Modifier = Modifier,navController: NavHostController) {
     val retryWorkerViewModel: RetryWorkerViewModel = hiltViewModel()
     val retryState = retryWorkerViewModel.retryState.collectAsStateWithLifecycle()
 
