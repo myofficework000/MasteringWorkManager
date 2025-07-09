@@ -1,4 +1,4 @@
-package com.code4galaxy.workmanagerdemo
+package com.code4galaxy.workmanagerdemo.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.code4galaxy.workmanagerdemo.ui.QuoteScreen
+import com.code4galaxy.workmanagerdemo.ui.screen.RetryUploadScreen
 import com.code4galaxy.workmanagerdemo.ui.theme.WorkmanagerDemoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,8 +19,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             WorkmanagerDemoTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    QuoteScreen(modifier = Modifier.padding(innerPadding))
+                Scaffold(modifier = Modifier.Companion.fillMaxSize()) { innerPadding ->
+                    // QuoteScreen(modifier = Modifier.Companion.padding(innerPadding))
+                    RetryUploadScreen(modifier = Modifier.Companion.padding(innerPadding))
                 }
             }
         }

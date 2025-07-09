@@ -1,4 +1,4 @@
-package com.code4galaxy.workmanagerdemo
+package com.code4galaxy.workmanagerdemo.workers
 
 import android.content.Context
 import androidx.work.CoroutineWorker

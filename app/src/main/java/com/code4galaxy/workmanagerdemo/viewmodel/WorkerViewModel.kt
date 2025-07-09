@@ -1,4 +1,4 @@
-package com.code4galaxy.workmanagerdemo
+package com.code4galaxy.workmanagerdemo.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,10 +6,12 @@ import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import com.code4galaxy.workmanagerdemo.workers.QuoteWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,13 +30,13 @@ class WorkerViewModel @Inject constructor(private val app: Application) :
         // STEP 2: Create a periodic work request
         val workRequest = PeriodicWorkRequestBuilder<QuoteWorker>(
             repeatInterval = 15,
-            repeatIntervalTimeUnit = java.util.concurrent.TimeUnit.MINUTES
+            repeatIntervalTimeUnit = TimeUnit.MINUTES
         )
             .setConstraints(constraints)
             .build()
 
         // STEP 3: Create WorkManager instance and enqueue the work request
-        WorkManager.getInstance(app).enqueueUniquePeriodicWork(
+        WorkManager.Companion.getInstance(app).enqueueUniquePeriodicWork(
             uniqueWorkName = "quoteSync",
             existingPeriodicWorkPolicy = ExistingPeriodicWorkPolicy.KEEP,
             workRequest
