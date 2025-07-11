@@ -10,30 +10,20 @@ import com.code4galaxy.workmanagerdemo.ui.screen.ImageChainScreen
 import com.code4galaxy.workmanagerdemo.ui.screen.MessageSyncScreen
 import com.code4galaxy.workmanagerdemo.ui.screen.RetryUploadScreen
 
-
 @Composable
-fun MainNavigation(modifier: Modifier = Modifier,navController:NavHostController) {
-
+fun MainNavigation(modifier: Modifier = Modifier, navController: NavHostController) {
     NavHost(
         navController,
         startDestination = "ImageChainScreen"
-
     ) {
-
-
-        composable("RetryUploadScreen"){
-
+        composable("RetryUploadScreen") {
             RetryUploadScreen(navController = navController)
         }
-        composable("ImageChainScreen"){
+        composable("ImageChainScreen") {
             ImageChainScreen(navController = navController)
         }
         composable("sync_message") {
             MessageSyncScreen(context = LocalContext.current)
         }
-
-//        composable(".."){
-//            RetryUploadScreen()
-//        }
     }
 }
