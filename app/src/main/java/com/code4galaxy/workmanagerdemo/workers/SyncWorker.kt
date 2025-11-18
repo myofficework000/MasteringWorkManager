@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import kotlinx.coroutines.delay
+import androidx.core.content.edit
 
 class SyncWorker(context: Context, workerParams: WorkerParameters) : CoroutineWorker(context, workerParams) {
     override suspend fun doWork(): Result {
@@ -16,7 +17,7 @@ class SyncWorker(context: Context, workerParams: WorkerParameters) : CoroutineWo
                 Log.d("SyncWorker", "Syncing: $message")
                 delay(2000) //
                 Log.d("SyncWorker", "Sync success")
-                prefs.edit().remove("message").apply()
+                prefs.edit { remove("message") }
                 Result.success()
             } catch (e: Exception) {
                 Log.e("SyncWorker", "Sync failed", e)

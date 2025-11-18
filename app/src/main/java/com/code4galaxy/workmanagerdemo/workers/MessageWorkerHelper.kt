@@ -4,11 +4,12 @@ import android.content.Context
 import androidx.work.*
 
 import java.util.concurrent.TimeUnit
+import androidx.core.content.edit
 
 object MessageWorkerHelper {
     fun saveToLocal(context: Context, data: String) {
         val prefs = context.getSharedPreferences("local_data", Context.MODE_PRIVATE)
-        prefs.edit().putString("message", data).apply()
+        prefs.edit { putString("message", data) }
     }
 
     fun scheduleSyncWorker(context: Context) {

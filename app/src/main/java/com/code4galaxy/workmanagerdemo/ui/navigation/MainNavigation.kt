@@ -14,7 +14,7 @@ import com.code4galaxy.workmanagerdemo.ui.screen.RetryUploadScreen
 fun MainNavigation(modifier: Modifier = Modifier, navController: NavHostController) {
     NavHost(
         navController,
-        startDestination = "ImageChainScreen"
+        startDestination = "RetryUploadScreen"
     ) {
         composable("RetryUploadScreen") {
             RetryUploadScreen(navController = navController)

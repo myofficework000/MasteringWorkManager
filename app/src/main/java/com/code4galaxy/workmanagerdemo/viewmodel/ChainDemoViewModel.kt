@@ -2,6 +2,7 @@ package com.code4galaxy.workmanagerdemo.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
@@ -12,6 +13,8 @@ import com.code4galaxy.workmanagerdemo.workers.UploadWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.util.UUID
 import javax.inject.Inject
 
@@ -49,6 +52,20 @@ class ChainDemoViewModel @Inject constructor(private val app: Application) :
                 )
             }
         }
+
+        viewModelScope.launch {
+            workManager.getWorkInfoByIdFlow(uUID).collectLatest { info ->
+                info?.let {
+                    _chainState.value = ChainState(
+                        step = step,
+                        state = it.state,
+                        message = it.outputData.getString("result")
+                    )
+                }
+            }
+        }
+
+        workManager.cancelWorkById(uUID)
     }
 
     override fun onCleared() {
