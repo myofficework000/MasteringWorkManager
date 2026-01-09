@@ -1,6 +1,6 @@
 # WorkManager Background Tasks in Android
 
-This repository demonstrates how to implement reliable background task execution using **WorkManager**, a part of Android Jetpack. It showcases one-time work, periodic work, constraints, chaining tasks, retry policies, and LiveData integration.
+This repository demonstrates how to implement reliable background task execution using **WorkManager**, a part of Android Jetpack. It showcases one-time work, periodic work, constraints, chaining tasks, retry policies and LiveData integration.
 
 ---
 
